@@ -1,0 +1,12 @@
+.header_container{
+    height:90px;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    width:100%;
+}
+.header_container p{
+    font-family:"Bold";
+    font-size:30px;
+    letter-spacing:-0.4px;
+}
