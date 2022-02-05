@@ -6,8 +6,39 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+h1,h2,h3,h4,h5,h6 p{
+  padding:0px;
+  margin:0px;
+}
+html{
+  
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+@font-face{
+  font-family: 'Black';
+  src: url('./assets/fonts/AirbnbCerealBlack.ttf') format("truetype"); 
+}
+@font-face{
+  font-family: 'ExtraBold';
+  src: url('./assets/fonts/AirbnbCerealMedium.ttf') format("truetype"); 
+}
+@font-face{
+  font-family: 'Bold';
+  src: url('./assets/fonts/AirbnbCerealBold.ttf') format("truetype"); 
+}
+@font-face{
+  font-family: 'Medium';
+  src: url('./assets/fonts/AirbnbCerealMedium.ttf') format("truetype"); 
+}
+@font-face{
+  font-family: 'Regular';
+  src: url('./assets/fonts/AirbnbCerealBook.ttf') format("truetype"); 
+}
+
+@font-face{
+  font-family: 'Light';
+  src: url('./assets/fonts/AirbnbCerealLight.ttf') format("truetype"); 
 }
