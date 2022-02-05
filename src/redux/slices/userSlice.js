@@ -43,7 +43,11 @@ const userSlice = createSlice({
         })
         builder.addCase(fetchUsersAsync.fulfilled,(state,action)=>{
             console.log("Fetching data successfully...")
-            return action.payload
+            localStorage.setItem('userData', JSON.stringify(action.payload));
+            const data = localStorage.getItem('userData');
+            const parsedData = JSON.parse(data)
+            return parsedData
+            // return action.payload
         })
         builder.addCase(fetchUsersAsync.rejected,(state,action)=>{
             console.log("Fetching data failed...")
