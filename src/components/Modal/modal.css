@@ -1,0 +1,107 @@
+:root{
+    --b_1:#338FFF;
+    --border:#E5E5E5;
+    --back_1:#F4F4F4;
+    --y_1:#F4D404;
+    --r_1:#EA0A45;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index:999;
+    transition:200ms all ease-in;
+  }
+
+.display_block {
+    display: block;
+  }
+.display_none {
+    display: none;
+  }
+.modal .modal_content{
+    position:fixed;
+    background: white;
+    width: 40%;
+    height: auto;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius:20px;
+    padding:1rem 0rem;
+}
+.modal .modal_content  .close_button{
+    background:white;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    width:38px;
+    height:38px;
+    border-radius:30px;
+    position:absolute;
+    top:-50px;
+    right:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transform:scale(1.0);
+    transition:0.2s all ease-in;
+}
+.modal .modal_content .close_button:hover{
+    transition:0.2s all ease-in;
+    transform:scale(1.1);
+}
+.modal .modal_content .modal_header p{
+    text-align:center;
+    font-size:18px;
+    font-family:"Bold";
+}
+.modal .modal_content .modal_text{
+    text-align:center;
+}
+.modal .modal_content .modal_text p{
+    font-size:14px;
+    font-family:"Regular";
+}
+
+.modal .modal_content .modal_buttons{
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+    justify-content:center;
+    column-gap:2rem;
+}
+.modal .modal_content .modal_buttons .cancel{
+    width: 150px;
+    height: 40px;
+    border-radius:20px;
+    background-color: var(--r_1);
+    color:white;
+    font-size:12px;
+    font-family:"Medium";
+    outline:none;
+    border:none;
+    cursor:pointer; 
+    transition:0.8 all ease-in;
+    margin:20px 0px;
+}
+.modal .modal_content .modal_buttons .save{
+    width: 150px;
+    height: 40px;
+    border-radius:20px;
+    background-color: var(--b_1);
+    color:white;
+    font-size:12px;
+    font-family:"Medium";
+    outline:none;
+    border:none;
+    cursor:pointer; 
+    transition:0.8 all ease-in;
+    margin:20px 0px;
+}
+.modal .modal_content .modal_buttons button:hover{
+    opacity:0.7;
+}
