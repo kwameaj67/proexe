@@ -4,6 +4,7 @@
     --back_1:#F4F4F4;
     --y_1:#F4D404;
     --r_1:#EA0A45;
+    --black:#303030;
 }
 table, th, td {
     /* border: 1px solid black; */
@@ -25,6 +26,9 @@ table, th, td {
     flex-direction:row;
     align-items:center;
     top-border:1px solid var(--border);
+    poistion:fixed;
+    z-index:999;
+    /* width:100%; */
 }
 .table_container .table_header p{
     font-size:20px;
@@ -37,7 +41,7 @@ table, th, td {
     border-radius:20px;
     background-color: var(--b_1);
     color:white;
-    font-size:14px;
+    font-size:12px;
     font-family:"Medium";
     outline:none;
     border:none;
@@ -68,12 +72,15 @@ table, th, td {
     border-radius:8px;
     margin-bottom:15px;
     padding: 8px 0px;
+    
 }
 .table_container .table_content table thead .titles th{
-    font-size:15px;
+    font-size:12px;
     font-family:"Regular";
     flex-basis:14.2%;
     text-align:center;
+    text-transform:uppercase;
+    letter-spacing:0.2px;
 }
 .table_container .table_content table tbody {
     display: table-header-group;
@@ -94,6 +101,7 @@ table, th, td {
     text-align:center;
     flex-basis:14.2%;
     margin:10px 0px;
+    color:var(--black);
 }
 .table_container .table_content table tbody .text td:first-letter{
     text-transform:capitalize;
@@ -109,6 +117,7 @@ table, th, td {
     outline:none;
     border:none;
     cursor:pointer; 
+    transition:0.8 all ease-in;
 }
 .table_container .table_content table tbody tr td .delete_button{
     width: 80px;
@@ -121,4 +130,10 @@ table, th, td {
     outline:none;
     border:none;
     cursor:pointer; 
+    transition:0.8 all ease-in;
+}
+.table_container .table_content table tbody tr td .edit_button:hover,
+.table_container .table_content table tbody tr td .delete_button:hover{
+    opacity:0.7;
+    transition:0.8 all ease-in;
 }
