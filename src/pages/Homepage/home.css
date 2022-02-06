@@ -26,9 +26,6 @@ table, th, td {
     flex-direction:row;
     align-items:center;
     top-border:1px solid var(--border);
-    poistion:fixed;
-    z-index:999;
-    /* width:100%; */
 }
 .table_container .table_header p{
     font-size:20px;
@@ -50,6 +47,13 @@ table, th, td {
 .table_container .table_content{
     margin:10px 10px;
 }
+.table_container .table_content .user_state {
+    font-size:12px;
+    font-family:"Regular";
+    color:grey;
+    text-align:center;
+}
+
 .table_container .table_content table{
     display:flex;
     flex-direction:column;
@@ -88,6 +92,7 @@ table, th, td {
     border-color: inherit;
     width:100%;
 }
+
 .table_container .table_content table tbody .text {
     display:flex;
     flex-direction:row;
