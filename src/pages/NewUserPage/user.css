@@ -1,0 +1,80 @@
+:root{
+    --b_1:#338FFF;
+    --border:#E5E5E5;
+    --back_1:#F4F4F4;
+    --y_1:#F4D404;
+    --r_1:#EA0A45;
+}
+.user_container{
+    padding:2rem 2rem;
+}
+.user_container .user_content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+.user_container .user_content .form_area{
+    width:100%;
+    margin:0rem 10rem;
+}
+.user_container .user_content .form_area p{
+    font-size:20px;
+    font-family:"Bold";
+    letter-spacing:0px;
+}
+.user_container .user_content .form_area form{
+    margin:2rem 0rem;
+}
+.user_container .user_content .form_area form .input_area{
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    flex-direction:column;
+    width:100%;
+}
+.user_container .user_content .form_area form .input_area label{
+    font-size:15px;
+    font-family:"Medium";
+    letter-spacing:0px;
+}    
+.user_container .user_content .form_area form .input_area input{
+    font-size:15px;
+    font-family:"Medium";
+    letter-spacing:0px;
+    border:1px solid var(--border);
+    outline:none;
+    background-color:transparent;
+    padding:10px 10px;
+    border-radius:5px;
+    margin-top:12px;
+    width:70%;
+}    
+.user_container .user_content .form_area form .input_area input::placeholder {
+    color:grey;
+    font-family:"Regular"
+}
+.user_container .user_content .form_area form button{
+    width: 150px;
+    height: 40px;
+    border-radius:20px;
+    background-color: var(--r_1);
+    color:white;
+    font-size:12px;
+    font-family:"Medium";
+    outline:none;
+    border:none;
+    cursor:pointer; 
+    transition:0.8 all ease-in;
+    margin:20px 0px;
+}
+.user_container .user_content .form_area form button:hover{
+    opacity:0.7;
+}
+.user_container .user_content .form_area form .input_area .error_text{
+    display:block;
+    font-size:12px;
+    font-family:"Medium";
+    letter-spacing:0px; 
+    color:var(--r_1);
+}
