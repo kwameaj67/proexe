@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { v4 as uuidv4 } from 'uuid'
+// import { v4 as uuidv4 } from 'uuid'
 import axios from 'axios'
 import { api } from '../../utils/api'
-
+import { loadState, saveArrayState, saveObjectState } from '../../utils/helpers'
 export const fetchUsersAsync = createAsyncThunk(
     'users/fetchUsersAsync',
     async () => {
         const res = await axios.get(api)
         // if (res.status ===  200){
-            return res.data
+        return res.data
         // }
     }
 )
@@ -19,13 +19,27 @@ const userSlice = createSlice({
     reducers: {
         addUserAction: (state, action) => {
             const newUser = {
-                id: uuidv4(),
+                id: Date.now(),
                 name: action.payload.name,
-                email: action.payload.email
+                email: action.payload.email,
+                username: "",
+                address: {
+                    city: ""
+                },
             }
-            state.push(newUser);
-            // stores data in memory
-            localStorage.setItem('userData', JSON.stringify(state));
+
+            // check if local storage key exists
+            if (loadState() === null) {
+                saveObjectState(newUser, state)  // save new user
+            } else {
+                // get existing objects locally
+                const existing = loadState()
+                existing.push(newUser)
+                // save object again
+                localStorage.setItem("userData", JSON.stringify(existing)); //update storage
+                loadState()
+            }
+
         },
         deleteUserAction: (state, action) => {
             const removeItem = state.filter((item) => item.id !== action.payload.id)
@@ -38,18 +52,18 @@ const userSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(fetchUsersAsync.pending, (state,action)=>{
+        builder.addCase(fetchUsersAsync.pending, (state, action) => {
             console.log("Fetching data pending...")
         })
-        builder.addCase(fetchUsersAsync.fulfilled,(state,action)=>{
+        builder.addCase(fetchUsersAsync.fulfilled, (state, action) => {
             console.log("Fetching data successfully...")
-            localStorage.setItem('userData', JSON.stringify(action.payload));
-            const data = localStorage.getItem('userData');
-            const parsedData = JSON.parse(data)
-            return parsedData
-            // return action.payload
+            if (loadState() === null) {
+                saveArrayState(action.payload)
+            }
+            const data = loadState()
+            return data
         })
-        builder.addCase(fetchUsersAsync.rejected,(state,action)=>{
+        builder.addCase(fetchUsersAsync.rejected, (state, action) => {
             console.log("Fetching data failed...")
         })
     }
