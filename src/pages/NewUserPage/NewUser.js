@@ -3,9 +3,12 @@ import './user.css'
 import { Header } from '../../components/index'
 import { useDispatch } from 'react-redux'
 import { addUserAction } from '../../redux/slices/userSlice'
+import { useNavigate } from 'react-router-dom'
+// import {  toaster } from 'evergreen-ui'
 
 const NewUserPage = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         name: '',
         email: ''
@@ -33,9 +36,8 @@ const NewUserPage = () => {
         setFormData({name:'',email:''})
         setIsSubmit(false)
         setFormErrors({})
-
-
-        // toaster.success('User created successfully!')
+        navigate("/")
+        // toaster.success('A new user has been created successfully!')
     }
     const validateForm = (values) => {
         const errors = {}
