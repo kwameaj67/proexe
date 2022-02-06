@@ -1,0 +1,57 @@
+:root{
+    --b_1:#338FFF;
+    --border:#E5E5E5;
+    --back_1:#F4F4F4;
+    --y_1:#F4D404;
+    --r_1:#EA0A45;
+    --black:#303030;
+}
+.table_container .table_content table tbody .text {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+}
+.table_container .table_content table tbody .text td{
+    font-size:14px;
+    font-family:"Regular";
+    text-align:center;
+    flex-basis:14.2%;
+    margin:10px 0px;
+    color:var(--black);
+}
+.table_container .table_content table tbody .text td:first-letter{
+    text-transform:capitalize;
+}
+.table_container .table_content table tbody tr td .edit_button{
+    width: 80px;
+    height: 30px;
+    border-radius:20px;
+    background-color: var(--y_1);
+    color:white;
+    font-size:12px;
+    font-family:"Medium";
+    outline:none;
+    border:none;
+    cursor:pointer; 
+    transition:0.8 all ease-in;
+}
+.table_container .table_content table tbody tr td .delete_button{
+    width: 80px;
+    height: 30px;
+    border-radius:20px;
+    background-color: var(--r_1);
+    color:white;
+    font-size:12px;
+    font-family:"Medium";
+    outline:none;
+    border:none;
+    cursor:pointer; 
+    transition:0.8 all ease-in;
+}
+.table_container .table_content table tbody tr td .edit_button:hover,
+.table_container .table_content table tbody tr td .delete_button:hover{
+    opacity:0.7;
+    transition:0.8 all ease-in;
+}
