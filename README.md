@@ -11,3 +11,7 @@ Run this app using
 
 ### `npm start`
 
+### Live URL 
+
+Open [App](https://proexe-react.netlify.app/)
+
