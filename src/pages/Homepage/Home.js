@@ -66,43 +66,44 @@ const HomePage = () => {
                     </Link>
                 </div>
                 <div className="table_content">
-                    {users.length === 0 && <p className="user_state">There are no users</p>}
-                    {loading === true && <p>Loading users...</p>}
-                    <table>
-                        <thead>
-                            <tr className="titles">
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>City</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {users.length > 0 &&
-                                users.map((item) => {
-                                    return (
-                                        <>
-                                            <TableRow
-                                                id={item.id}
-                                                name={item.name}
-                                                username={item.username === "" ? "N/A" : item.username}
-                                                email={item.email}
-                                                city={item.address.city === "" ? "N/A" : item.address.city}
-                                                onClickEditButton={() => { navigateToEditPage(item) }}
-                                                onClickDeleteButton={() => { navigateToDeleteModal(item) }}
-                                            />
+                    { users.length === 0 && loading === false && <p className="user_state">There are no users</p>}
+                    { loading === true && <p className="user_state">Loading users...</p>}
+                    { users.length > 0 &&
+                        <table>
+                            <thead>
+                                <tr className="titles">
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>City</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    users.map((item) => {
+                                        return (
+                                            <>
+                                                <TableRow
+                                                    id={item.id}
+                                                    name={item.name}
+                                                    username={item.username === "" ? "N/A" : item.username}
+                                                    email={item.email}
+                                                    city={item.address.city === "" ? "N/A" : item.address.city}
+                                                    onClickEditButton={() => { navigateToEditPage(item) }}
+                                                    onClickDeleteButton={() => { navigateToDeleteModal(item) }}
+                                                />
 
-                                        </>
-                                    )
-                                })
-                            }
+                                            </>
+                                        )
+                                    })
+                                }
 
-
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    }
                 </div>
             </div>
         </div>

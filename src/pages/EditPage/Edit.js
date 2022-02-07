@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import './edit.css'
 import { Header, } from '../../components/index'
 import { useDispatch } from 'react-redux'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { editUserAction } from '../../redux/slices/userSlice'
 
-const HomePage = (props) => {
+const EditPage = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const { id } = useParams()
+    // console.log(id);
     const { state } = useLocation();
     const [formData, setFormData] = useState({
         name: state.name,
@@ -26,16 +28,17 @@ const HomePage = (props) => {
     const editUser = () => {
         // write dispatch action here
         dispatch(editUserAction({
-            id:state.id,
-            name:formData.name,
-            email:formData.email,
+            id: id,
+            name: formData.name.toString(),
+            email: formData.email.toString(),
         }))
+        console.log(id,formData.name,formData.email)
     }
     const submitForm = (e) => {
         e.preventDefault()
         setFormErrors(validateForm(formData))
         editUser()
-        setFormData({ name: '', email: '' })
+        // setFormData({ name: '', email: '' })
         setIsSubmit(false)
         setFormErrors({})
         navigate('/')  // redirect to home page
@@ -64,7 +67,7 @@ const HomePage = (props) => {
         <div className="user_container">
             <Header />
             <div className="user_content">
-                {/* <pre>{JSON.stringify(formErrors, undefined, 2)}</pre> */}
+                <pre>{JSON.stringify(formErrors, undefined, 2)}</pre>
                 <div className="form_area">
                     <p>Edit user</p>
                     <form onSubmit={submitForm} autoComplete='off'>
@@ -89,4 +92,4 @@ const HomePage = (props) => {
     )
 }
 
-export default HomePage
+export default EditPage

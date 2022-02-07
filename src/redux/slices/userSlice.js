@@ -27,7 +27,6 @@ const userSlice = createSlice({
                     city: ""
                 },
             }
-
             // check if local storage key exists
             if (loadState() === null) {
                 saveObjectState(newUser, state)  // save new user
@@ -42,13 +41,30 @@ const userSlice = createSlice({
 
         },
         deleteUserAction: (state, action) => {
-            const removeItem = state.filter((item) => item.id !== action.payload.id)
-            return removeItem
+            if (loadState() != null) { // check if data already exists locally
+                let existing = loadState();
+                const index = existing.findIndex((item) => item.id === action.payload.id)
+                existing.splice(index,1);
+                saveArrayState(existing) //update storage
+                loadState()
+                return existing
+            }
         },
         editUserAction: (state, action) => {
-            // finds a particular item index in entire state
-            const index = state.findIndex((item) => item.id === action.payload.id)
-            state[index].name = action.payload.name  //sets whatever value a componenet passed to update the name item in state
+            if (loadState() != null) {
+                let existing = loadState();
+                console.log(existing)
+                // finds a particular item index in entire state
+                const index = existing.findIndex((item) => item.id === action.payload.id)
+                //sets whatever value a componenet passed to update the name item in state
+                console.log(action.payload)
+                existing[index].name = action.payload.name
+                existing[index].email = action.payload.email
+
+                saveArrayState(existing) //update storage
+                loadState()
+                return existing
+            }
         }
     },
     extraReducers: (builder) => {
@@ -56,9 +72,13 @@ const userSlice = createSlice({
             console.log("Fetching data pending...")
         })
         builder.addCase(fetchUsersAsync.fulfilled, (state, action) => {
-            console.log("Fetching data successfully...")
-            if (loadState() === null) {
+            console.log("Fetching data successfully...",)
+            const existing = loadState()
+            if (existing === null) {
                 saveArrayState(action.payload)
+            } else if (existing.length === 0) {
+                saveArrayState(action.payload)
+                // loadState()
             }
             const data = loadState()
             return data

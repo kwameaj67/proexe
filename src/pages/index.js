@@ -1,8 +1,10 @@
 import React from 'react';
 const HomePage = React.lazy( ()=> import ('./Homepage/Home'))
-const EditPage = React.lazy( ()=> import ('./EditPage/Edit'))
+const EditUserPage = React.lazy( ()=> import ('./EditPage/Edit'))
+const CreateUserPage = React.lazy( ()=> import ('./NewUserPage/NewUser'))
 
 export {
     HomePage,
-    EditPage
+    EditUserPage,
+    CreateUserPage
 }
