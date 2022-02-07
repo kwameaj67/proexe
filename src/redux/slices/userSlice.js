@@ -53,17 +53,18 @@ const userSlice = createSlice({
         editUserAction: (state, action) => {
             if (loadState() != null) {
                 let existing = loadState();
-                console.log(existing)
-                // finds a particular item index in entire state
-                const index = existing.findIndex((item) => item.id === action.payload.id)
-                //sets whatever value a componenet passed to update the name item in state
-                console.log(action.payload)
+                // console.log(existing)
+                const index = existing.findIndex((item) => item.id === parseInt(action.payload.id))
+
+                // console.log(index)
+                // console.log(existing[index])
+                existing[index].id = Date.now()
                 existing[index].name = action.payload.name
                 existing[index].email = action.payload.email
 
                 saveArrayState(existing) //update storage
                 loadState()
-                return existing
+                // return existing
             }
         }
     },

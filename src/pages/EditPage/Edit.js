@@ -28,11 +28,11 @@ const EditPage = () => {
     const editUser = () => {
         // write dispatch action here
         dispatch(editUserAction({
-            id: id,
-            name: formData.name.toString(),
-            email: formData.email.toString(),
+            id: parseInt(id),
+            name: formData.name,
+            email: formData.email,
         }))
-        console.log(id,formData.name,formData.email)
+      
     }
     const submitForm = (e) => {
         e.preventDefault()
@@ -61,13 +61,13 @@ const EditPage = () => {
         navigate('/')
     }
     useEffect(() => {
-
+        // console.log(id,formData.name,formData.email)
     }, [formErrors])
     return (
         <div className="user_container">
             <Header />
             <div className="user_content">
-                <pre>{JSON.stringify(formErrors, undefined, 2)}</pre>
+                {/* <pre>{JSON.stringify(formErrors, undefined, 2)}</pre> */}
                 <div className="form_area">
                     <p>Edit user</p>
                     <form onSubmit={submitForm} autoComplete='off'>

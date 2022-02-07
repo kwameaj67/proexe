@@ -12,6 +12,7 @@ const HomePage = () => {
     const [loading, setLoading] = useState(false)
     const [selectedUser, setSelectedUser] = useState({ id: '', name: '', email: '' })
     const users = useSelector(state => state.users);
+    
     const navigateToEditPage = (item) => {
         navigate(`/edit/${item.id}`, {
             state: {
@@ -32,7 +33,7 @@ const HomePage = () => {
                 email: item.email
             }
         }))
-        console.log(selectedUser)
+       
 
     }
     const deleteUserFromStorage = () => {
