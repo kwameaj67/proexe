@@ -1,0 +1,26 @@
+:root{
+    --b_1:#338FFF;
+    --border:#E5E5E5;
+    --back_1:#F4F4F4;
+    --y_1:#F4D404;
+    --r_1:#EA0A45;
+}
+.back_btn{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    flex-direction:row;
+    background-color:#D5ECFE;
+    width:80px;
+    height:30px;
+    border-radius:20px;
+    border:none;
+    outline:none;
+    cursor:pointer;
+}
+.back_btn p{
+    font-size:14px;
+    font-family:"Medium";
+    color:var(--b_1);
+
+}
