@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import './user.css'
-import { Header } from '../../components/index'
+import { Header, BackButton } from '../../components/index'
 import { useDispatch } from 'react-redux'
 import { addUserAction } from '../../redux/slices/userSlice'
 import { useNavigate } from 'react-router-dom'
-// import {  toaster } from 'evergreen-ui'
 
 const NewUserPage = () => {
     const dispatch = useDispatch()
@@ -33,7 +32,7 @@ const NewUserPage = () => {
         e.preventDefault()
         setFormErrors(validateForm(formData))
         addUser()
-        setFormData({name:'',email:''})
+        setFormData({ name: '', email: '' })
         setIsSubmit(false)
         setFormErrors({})
         navigate("/")
@@ -58,6 +57,7 @@ const NewUserPage = () => {
     }, [formErrors])
     return (
         <div className="user_container">
+            <BackButton goBackAction={() => { navigate('/') }} />
             <Header />
             <div className="user_content">
                 {/* <pre>{JSON.stringify(formErrors, undefined, 2)}</pre> */}

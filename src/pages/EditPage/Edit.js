@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './edit.css'
-import { Header, } from '../../components/index'
+import { Header, BackButton} from '../../components/index'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { editUserAction } from '../../redux/slices/userSlice'
@@ -53,6 +53,7 @@ const EditPage = () => {
     }, [formErrors])
     return (
         <div className="user_container">
+            <BackButton goBackAction={() => { navigate('/') }} />
             <Header />
             <div className="user_content">
                 {/* <pre>{JSON.stringify(formErrors, undefined, 2)}</pre> */}
